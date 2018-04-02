@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main import views
+from comments import views as c_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('post/<int:pk>', views.detail, name='detail'),
-    path('archives/<int:year>/<int:month>',views.archives,name='archives'),
-    path('category/<int:pk>',views.category,name='category'),
+    path('archives/<int:year>/<int:month>', views.archives, name='archives'),
+    path('category/<int:pk>', views.category, name='category'),
+    path('comment/post/<int:post_pk>',c_views.post_comment,name='post_comment'),
 ]
