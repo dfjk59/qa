@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from main import views
 from comments import views as c_views
+from main.feeds import AllPostsRssFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,7 @@ urlpatterns = [
     path('post/<int:pk>', views.PostDetailView.as_view(), name='detail'),
     path('archives/<int:year>/<int:month>', views.ArchivesView.as_view(), name='archives'),
     path('category/<int:pk>', views.CategoryView.as_view(), name='category'),
-    path('comment/post/<int:post_pk>',c_views.post_comment,name='post_comment'),
+    path('comment/post/<int:post_pk>', c_views.post_comment, name='post_comment'),
+    path('tag/<int:pk>', views.Tag.as_view(), name='tag'),
+    path('all/rss', AllPostsRssFeed(), name='rss'),
 ]

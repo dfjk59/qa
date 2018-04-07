@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Category
+from .models import Post, Category,Tag
 import markdown
 from comments.forms import CommentForm
 from django.views.generic import ListView, DetailView
+
+
 # Create your views here.
 
 
@@ -141,7 +143,7 @@ class IndexView(ListView):
             'last': last,
         }
 
-        return data    
+        return data
 
 
 class CategoryView(IndexView):
@@ -157,6 +159,16 @@ class ArchivesView(IndexView):
         return super(ArchivesView, self).get_queryset().filter(created_time__year=year,
                                                                created_time__month=month
                                                                )
+
+
+class TagView(ListView):
+    model = Post
+    template_name = 'index.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, pk=self.kwargs.get('pk'))
+        return super(TagView, self).get_queryset().filter(tags=tag)
 
 
 class PostDetailView(DetailView):
