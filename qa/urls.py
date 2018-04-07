@@ -14,18 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from main import views
-from comments import views as c_views
+from django.urls import path, include
 from main.feeds import AllPostsRssFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexView.as_view(), name='index'),
-    path('post/<int:pk>', views.PostDetailView.as_view(), name='detail'),
-    path('archives/<int:year>/<int:month>', views.ArchivesView.as_view(), name='archives'),
-    path('category/<int:pk>', views.CategoryView.as_view(), name='category'),
-    path('comment/post/<int:post_pk>', c_views.post_comment, name='post_comment'),
-    path('tag/<int:pk>', views.Tag.as_view(), name='tag'),
+    path('', include('main.urls')),
+    path('', include('comments.urls')),
     path('all/rss', AllPostsRssFeed(), name='rss'),
+    path('search/', include('haystack.urls')),
 ]

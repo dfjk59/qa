@@ -9,6 +9,6 @@ class PostAdmin(admin.ModelAdmin):
                     'modified_time', 'category', 'author']
 
 
-admin.site.register(Post,PostAdmin)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Category)
 admin.site.register(Tag)
