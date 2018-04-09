@@ -477,6 +477,12 @@ img {
     top: 8px;
 }
 
+#header-login-box {
+    position: absolute;
+    right: 38px;
+    top: 8px;
+}
+
 .search-form {
     display: none;
     width: 25%;
