@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'main',  #注册main
     'comments',
     'haystack',
+    'actstream',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,10 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 #ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 #ACCOUNT_EMAIL_REQUIRED = True
+
+
+ACTSTREAM_SETTINGS = {
+    'MANAGER': 'myapp.managers.MyActionManager',
+    'FETCH_RELATIONS': True,
+    'USE_JSONFIELD': True,
+}

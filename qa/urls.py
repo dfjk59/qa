@@ -24,4 +24,5 @@ urlpatterns = [
     path('all/rss', AllPostsRssFeed(), name='rss'),
     path('search/', include('haystack.urls')),
     path('accounts/',include('allauth.urls')),
+    path('activity/',include('actstream.urls')),
 ]
