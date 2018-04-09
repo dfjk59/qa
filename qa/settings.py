@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites', 
+    'allauth',
+    'allauth.account',   
+    'allauth.socialaccount',
+    
     'main',  #注册main
     'comments',
     'haystack',
@@ -136,3 +142,16 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+
+# django-allauth相关设置
+AUTHENTICATION_BACKENDS = (
+      # django admin所使用的用户登录与django-allauth无关 
+     'django.contrib.auth.backends.ModelBackend',
+      # `allauth` specific authentication methods, such as login by e-mail 
+      'allauth.account.auth_backends.AuthenticationBackend',
+)
+# 前面我们app里添加了django.contrib.sites,需要设置
+SITE_ID = 1
+#ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+#ACCOUNT_EMAIL_REQUIRED = True
