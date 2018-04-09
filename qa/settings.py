@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'comments',
     'haystack',
     'actstream',
+    #'notifications',
+    'django_comments',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -159,7 +162,7 @@ SITE_ID = 1
 
 
 ACTSTREAM_SETTINGS = {
-    'MANAGER': 'myapp.managers.MyActionManager',
+    'MANAGER': 'actstream.managers.ActionManager',
     'FETCH_RELATIONS': True,
-    'USE_JSONFIELD': True,
+    'USE_JSONFIELD': False,
 }

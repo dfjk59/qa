@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main.feeds import AllPostsRssFeed
+import notifications.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('', include('comments.urls')),
+    #path('', include('comments.urls')),
     path('all/rss', AllPostsRssFeed(), name='rss'),
     path('search/', include('haystack.urls')),
-    path('accounts/',include('allauth.urls')),
-    path('activity/',include('actstream.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('activity/', include('actstream.urls')),
+    path('inbox/notifications/',include(notifications.urls, namespace='notifications')),
+    path('comments/', include('django_comments.urls')),
 ]
