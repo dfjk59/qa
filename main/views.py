@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.utils.text import slugify
 
-from comments.forms import CommentForm
+#from comments.forms import CommentForm
 from .models import Post, Category, Tag
 
 
@@ -120,7 +120,7 @@ class PostDetailView(DetailView):
         post.body = md.convert(post.body)
         post.toc = md.toc
         return post
-
+'''
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         form = CommentForm()
@@ -130,7 +130,7 @@ class PostDetailView(DetailView):
             'comment_list': comment_list
         })
         return context
-
+'''
 
 class ArchivesView(ListView):
     model = Post

@@ -42,11 +42,15 @@ INSTALLED_APPS = [
     'allauth.account',   
     'allauth.socialaccount',
     'main',  #注册main
-    'comments',
+    #'comments',
     'haystack',
     'actstream',
-    'django_comments',
+    'ckeditor',
+    'ckeditor_uploader',
     'mptt',
+    'easy_comment',
+    'notifications',
+    'online_status',
 ]
 
 MIDDLEWARE = [
@@ -161,3 +165,36 @@ ACTSTREAM_SETTINGS = {
     'FETCH_RELATIONS': True,
     'USE_JSONFIELD': False,
 }
+
+
+
+#ckeditor setup
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = 'upload/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width':'auto',
+        'height':'150px',
+        'image_previewText':' ',
+        'tabSpaces': 4,
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Format', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList'],
+            ['Blockquote', 'CodeSnippet'],
+            ['Image', 'Link', 'Unlink']
+        ],
+        'extraPlugins': ','.join(['codesnippet','uploadimage','prism','widget','lineutils',]),
+    }
+}
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+# 限制用户查看上传图片的权限， 只能看自己传的图片
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_RESTRICT_BY_DATE = True
+CKEDITOR_BROWSE_SHOW_DIRS = True
+
+AUTH_USER_MODEL = 'auth.User'     # 格式是 app_name+model_name
+SEND_NOTIFICATION_EMAIL = False
+COMMENT_PAGINATE_BY = 10
