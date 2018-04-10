@@ -1,5 +1,6 @@
 # 简单问答系统
 
+## Django常用命令
 ```
 pip freeze >requirements.txt
 
@@ -82,6 +83,7 @@ GitHub 地址：https://github.com/justquick/django-activity-stream
 ## django-easy-comment
 
 GitHub 地址：https://github.com/r26zhao/django-easy-comment
+
 文档地址：http://www.aaron-zhao.com/post/10/
 
 ## Markdown
