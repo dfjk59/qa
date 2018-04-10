@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'allauth.account',   
     'allauth.socialaccount',
     'main',  #注册main
-    #'comments',
     'haystack',
     'actstream',
     'ckeditor',
