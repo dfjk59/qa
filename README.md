@@ -1,6 +1,7 @@
 # 简单问答系统
 
 ## Django常用命令
+
 ```
 pip freeze >requirements.txt
 
@@ -17,7 +18,9 @@ cd django-notifications
 python setup.py install
 
 python -m venv <name>  #python3创建虚拟环境
+
 ```
+
 ## django-allauth
 
 简介：Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
