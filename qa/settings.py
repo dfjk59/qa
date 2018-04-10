@@ -37,17 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.sites', 
     'allauth',
     'allauth.account',   
     'allauth.socialaccount',
-    
     'main',  #注册main
     'comments',
     'haystack',
     'actstream',
-    #'notifications',
     'django_comments',
     'mptt',
 ]
@@ -158,9 +155,6 @@ AUTHENTICATION_BACKENDS = (
 # 前面我们app里添加了django.contrib.sites,需要设置
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-#ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-#ACCOUNT_EMAIL_REQUIRED = True
-
 
 ACTSTREAM_SETTINGS = {
     'MANAGER': 'actstream.managers.ActionManager',
