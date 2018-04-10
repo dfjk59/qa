@@ -123,14 +123,15 @@ class PostDetailView(DetailView):
 '''
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
-        form = CommentForm()
+        #form = CommentForm()
         comment_list = self.object.comment_set.all()
         context.update({
-            'form': form,
+            #'form': form,
             'comment_list': comment_list
         })
         return context
-'''
+        '''
+
 
 class ArchivesView(ListView):
     model = Post

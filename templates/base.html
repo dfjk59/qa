@@ -1,5 +1,4 @@
-{% load staticfiles %}
-{% load account %}
+{% load staticfiles %} {% load account %}
 <!DOCTYPE html>
 <html>
 
@@ -29,6 +28,17 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/pace.min.js' %}"></script>
     <script src="{% static 'js/modernizr.custom.js' %}"></script>
+
+    <link href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 评论框、评论列表的样式 -->
+    <link rel="stylesheet" href="{% static 'easy_comment/css/comment.css' %}">
+
+    <!-- 代码块的高亮 -->
+    <link rel="stylesheet" href="{% static 'easy_comment/css/prism.css' %}">
+    <!-- jquery要放在其他script上面 -->
+    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+    <script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
 </head>
 
 <body>
@@ -102,8 +112,7 @@
     </div>
 
     <div class="content-body">
-        {% block body %} {% endblock body %}
-        {% block content %} {% endblock %}
+        {% block body %} {% endblock body %} {% block content %} {% endblock %}
     </div>
     <footer id="site-footer">
         <div class="container">
