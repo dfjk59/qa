@@ -479,7 +479,7 @@ img {
 
 #header-login-box {
     position: absolute;
-    right: 38px;
+    right: 1px;
     top: 8px;
 }
 
@@ -493,6 +493,10 @@ img {
 }
 
 #search-menu span {
+    font-size: 20px;
+}
+
+#login-menu span {
     font-size: 20px;
 }
 

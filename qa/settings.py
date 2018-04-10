@@ -157,6 +157,7 @@ AUTHENTICATION_BACKENDS = (
 )
 # 前面我们app里添加了django.contrib.sites,需要设置
 SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
 #ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 #ACCOUNT_EMAIL_REQUIRED = True
 
